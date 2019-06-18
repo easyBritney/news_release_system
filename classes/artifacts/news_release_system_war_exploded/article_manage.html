@@ -29,11 +29,7 @@
                     <li>
                         <span class="m-r-sm text-muted welcome-message">欢迎来到新闻管理后台</span>
                     </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa fa-sign-out"></i> 注销
-                        </a>
-                    </li>
+                    
                     <li>
                         <a class="right-sidebar-toggle">
                             <i class="fa fa-tasks"></i>
@@ -84,8 +80,9 @@
                                     <td>
                                         <div class="center-block">
                                             <button class="btn btn-default" data-toggle="modal" data-target="#allowModal" v-bind:data-aid="article.aid" v-show="article.state === 'published'">允许上传</button>
-                                            <button class="btn btn-default" data-toggle="modal" data-target="#rejectModal" v-bind:data-aid="article.aid" v-show="article.state === 'checked'">退回稿件</button>
+                                            <button class="btn btn-default" data-toggle="modal" data-target="#rejectModal" v-bind:data-aid="article.aid" v-show="article.state === 'published'">退回稿件</button>
                                             <button class="btn btn-default" data-toggle="modal" data-target="#deleteModal" v-bind:data-aid="article.aid" v-show="article.state === 'checked'">删除</button>
+                                            <button class="btn btn-default" data-toggle="modal" data-target="#deleteModal" v-on:click="checkhistory(article.aid)">查看修改历史信息</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -157,7 +154,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">确认</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="delete" aria-label="Close">确认</button>
             </div>
         </div>
     </div>
